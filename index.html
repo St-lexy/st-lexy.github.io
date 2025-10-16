@@ -1,213 +1,761 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Olanrewaju Stephen | ML Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    * {
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olanrewaju Amusan | ML Engineer</title>
+    <meta name="description" content="Machine Learning Engineer specializing in Computer Vision, NLP, and Conversational AI">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background: #f5f9ff;
-      margin: 0;
-      color: #2e3a59;
-    }
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #8b5cf6;
+            --dark: #0f172a;
+            --dark-light: #1e293b;
+            --gray: #64748b;
+            --light: #f1f5f9;
+            --white: #ffffff;
+            --success: #10b981;
+        }
 
-    header {
-      background: linear-gradient(135deg, #001f3f, #0074D9);
-      color: white;
-      padding: 4rem 2rem;
-      text-align: center;
-    }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--white);
+        }
 
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
+        /* Navigation */
+        nav {
+            position: fixed;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            top: 0;
+        }
 
-    header p {
-      font-size: 1.2rem;
-      opacity: 0.9;
-    }
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    nav {
-      background: #fff;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 1rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
 
-    nav a {
-      color: #0074D9;
-      text-decoration: none;
-      font-weight: bold;
-    }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
 
-    nav a:hover {
-      color: #001f3f;
-    }
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
 
-    section {
-      padding: 3rem 10%;
-      max-width: 1000px;
-      margin: auto;
-    }
+        nav a:hover {
+            color: var(--primary);
+        }
 
-    h2 {
-      color: #001f3f;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      border-left: 5px solid #0074D9;
-      padding-left: 1rem;
-    }
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 6rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
 
-    .project {
-      background: #ffffff;
-      border-left: 4px solid #0074D9;
-      margin-bottom: 2rem;
-      padding: 1rem 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
 
-    .project h3 {
-      margin-top: 0;
-      font-size: 1.3rem;
-    }
+        .hero .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
 
-    .project ul {
-      margin: 0;
-      padding-left: 1.2rem;
-    }
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease;
+        }
 
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
-    }
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
 
-    footer {
-      background: #001f3f;
-      color: white;
-      text-align: center;
-      padding: 2rem 1rem;
-      margin-top: 3rem;
-    }
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
 
-    a {
-      color: #0074D9;
-      text-decoration: none;
-    }
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
 
-    a:hover {
-      text-decoration: underline;
-    }
+        .btn {
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+        }
 
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+        }
 
-      nav {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-      }
-    }
-  </style>
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        /* Projects Section */
+        .projects {
+            background: var(--light);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+
+        .project-icon {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem;
+            font-size: 3rem;
+            text-align: center;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .project-card .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .tech-tag {
+            background: var(--light);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--primary);
+        }
+
+        .project-card p {
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-links a {
+            flex: 1;
+            text-align: center;
+            padding: 0.6rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .github-link {
+            background: var(--dark);
+            color: white;
+        }
+
+        .github-link:hover {
+            background: var(--dark-light);
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .skill-category h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 0.5rem 0;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+        }
+
+        .skill-list li::before {
+            content: "✓";
+            color: var(--success);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        /* Experience Section */
+        .experience {
+            background: var(--light);
+        }
+
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--primary);
+        }
+
+        .timeline-item h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item .date {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: white;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--dark);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .contact-link:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
-
 <body>
-  <header>
-    <h1>Amusan Olanrewaju Stephen</h1>
-    <p>Machine Learning Engineer | Python Developer | Data Enthusiast</p>
-  </header>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">OA</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
-  </nav>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Olanrewaju Amusan</h1>
+            <div class="subtitle">Machine Learning Engineer | Python Developer | Data Enthusiast</div>
+            <p>Passionate about applying AI to solve real-world problems. Experienced in Computer Vision, NLP, and Conversational AI with proven projects in healthcare, automotive, and academic research domains.</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+    </section>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>
-      I’m an emerging Machine Learning Engineer with a deep interest in leveraging data to create intelligent systems that solve real-world problems.
-      Currently undergoing Industrial Training at the University College Hospital (UCH), Ibadan, I focus on Python-based development across Machine Learning,
-      Data Science, and AI domains. I enjoy transforming ideas into practical models and am continually improving my technical and collaborative skills.
-      <br><br>
-      I’m ready to collaborate on exciting projects, contribute to meaningful innovations, and learn alongside driven teams. Let’s build the future of AI together.
-    </p>
-  </section>
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">8+ Machine Learning projects across Computer Vision, NLP, and Data Science</p>
+            
+            <div class="projects-grid">
+                <!-- MediC Project -->
+                <div class="project-card">
+                    <div class="project-icon">🩺</div>
+                    <div class="project-content">
+                        <h3>MediC - AI Medical Consultant</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">AutoGen</span>
+                            <span class="tech-tag">LLM</span>
+                            <span class="tech-tag">Streamlit</span>
+                            <span class="tech-tag">Healthcare AI</span>
+                        </div>
+                        <p>Intelligent healthcare chatbot providing empathetic medical information with safety-first design and professional consultation interface.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/St-Lexy/medic-ai-chatbot" target="_blank" class="github-link">View on GitHub →</a>
+                        </div>
+                    </div>
+                </div>
 
-  <section id="projects">
-    <h2>Projects</h2>
+                <!-- Skimlit Project -->
+                <div class="project-card">
+                    <div class="project-icon">📄</div>
+                    <div class="project-content">
+                        <h3>Skimlit - Medical Abstract Classifier</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">NLP</span>
+                            <span class="tech-tag">USE</span>
+                            <span class="tech-tag">Conv1D</span>
+                            <span class="tech-tag">80% Accuracy</span>
+                        </div>
+                        <p>NLP model classifying medical abstract sections using Universal Sentence Encoder and positional features. Streamlines literature review for researchers.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/St-Lexy/skimlit-nlp-classifier" target="_blank" class="github-link">View on GitHub →</a>
+                        </div>
+                    </div>
+                </div>
 
-    <div class="project">
-      <h3>🚗 Fine-Grained Car Classification</h3>
-      <p>Used EfficientNetB0 on the CARS196 dataset to classify 196 car models.</p>
-      <ul>
-        <li>Train Accuracy: 99%</li>
-        <li>Validation Accuracy: 78%</li>
-        <li>Test Accuracy: 75%</li>
-      </ul>
-    </div>
+                <!-- Dog Breed Project -->
+                <div class="project-card">
+                    <div class="project-icon">🐕</div>
+                    <div class="project-content">
+                        <h3>Dog Breed Classification</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Computer Vision</span>
+                            <span class="tech-tag">MobileNet</span>
+                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">76% Accuracy</span>
+                        </div>
+                        <p>Deep learning classifier for 120 dog breeds using transfer learning. Demonstrates architecture comparison and optimization strategies.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/St-Lexy/dog-breed-classifier" target="_blank" class="github-link">View on GitHub →</a>
+                        </div>
+                    </div>
+                </div>
 
-    <div class="project">
-      <h3>🐶🐱 Cat vs Dog Classifier</h3>
-      <p>Binary classification with CNN trained on FreeCodeCamp dataset and tested on 11k+ Kaggle data.</p>
-      <p>Accuracy: 98%+</p>
-    </div>
+                <!-- Car Classification Project -->
+                <div class="project-card">
+                    <div class="project-icon">🚗</div>
+                    <div class="project-content">
+                        <h3>Fine-Grained Car Classification</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">EfficientNetB0</span>
+                            <span class="tech-tag">Transfer Learning</span>
+                            <span class="tech-tag">CARS196</span>
+                            <span class="tech-tag">78% Val Acc</span>
+                        </div>
+                        <p>Fine-tuned EfficientNetB0 for 196 car model classification on CARS196 dataset with 16,000+ images. Achieved 99% training and 78% validation accuracy.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/St-Lexy" target="_blank" class="github-link">View on GitHub →</a>
+                        </div>
+                    </div>
+                </div>
 
-    <div class="project">
-      <h3>🧠 Mental Health Predictor</h3>
-      <p>Predicting mental health issues from survey data using XGBoost and Scikit-learn.</p>
-    </div>
+                <!-- Cat vs Dog Project -->
+                <div class="project-card">
+                    <div class="project-icon">🐱</div>
+                    <div class="project-content">
+                        <h3>Cat vs Dog Image Classifier</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">CNN</span>
+                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">Binary Classification</span>
+                            <span class="tech-tag">98% Accuracy</span>
+                        </div>
+                        <p>Binary image classifier built with CNN achieving over 98% accuracy on 11,000+ test images. FreeCodeCamp certification project.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/St-Lexy" target="_blank" class="github-link">View on GitHub →</a>
+                        </div>
+                    </div>
+                </div>
 
-    <div class="project">
-      <h3>💳 Loan Approval Prediction</h3>
-      <p>Used Random Forest Classifier to automate loan approval decisions. Achieved 90% accuracy.</p>
-    </div>
+                <!-- Mental Health Predictor -->
+                <div class="project-card">
+                    <div class="project-icon">🧠</div>
+                    <div class="project-content">
+                        <h3>Mental Health Predictor</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">XGBoost</span>
+                            <span class="tech-tag">Scikit-learn</span>
+                            <span class="tech-tag">Healthcare</span>
+                            <span class="tech-tag">Binary Classification</span>
+                        </div>
+                        <p>Predicted potential mental health issues from survey data. Handled data cleaning, EDA, and model selection for binary classification task.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/St-Lexy" target="_blank" class="github-link">View on GitHub →</a>
+                        </div>
+                    </div>
+                </div>
 
-    <div class="project">
-      <h3>🎿 Podcast Listening Time Prediction</h3>
-      <p>Regression model using LightGBM to predict how long users will listen to podcasts.</p>
-    </div>
-  </section>
+                <!-- Loan Approval Prediction -->
+                <div class="project-card">
+                    <div class="project-icon">💳</div>
+                    <div class="project-content">
+                        <h3>Loan Approval Prediction</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Random Forest</span>
+                            <span class="tech-tag">Scikit-learn</span>
+                            <span class="tech-tag">Finance</span>
+                            <span class="tech-tag">90% Accuracy</span>
+                        </div>
+                        <p>ML model automating loan approval decisions using Random Forest Classifier. Achieved 90% accuracy for financial risk assessment.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/St-Lexy" target="_blank" class="github-link">View on GitHub →</a>
+                        </div>
+                    </div>
+                </div>
 
-  <section id="skills">
-    <h2>Skills</h2>
-    <div class="skills-grid">
-      <div><strong>Languages:</strong><br>Python, HTML, Markdown</div>
-      <div><strong>Libraries:</strong><br>TensorFlow, Keras, NumPy, Pandas</div>
-      <div><strong>Libraries:</strong><br>Scikit-learn, Matplotlib, Seaborn</div>
-      <div><strong>Tools:</strong><br>Google Colab, GitHub, VS Code, Kaggle</div>
-    </div>
-  </section>
+                <!-- Podcast Listening Time -->
+                <div class="project-card">
+                    <div class="project-icon">🎧</div>
+                    <div class="project-content">
+                        <h3>Podcast Listening Time Prediction</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">LightGBM</span>
+                            <span class="tech-tag">Regression</span>
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">Web Scraping</span>
+                        </div>
+                        <p>Regression model predicting user listening duration using custom scraped podcast data. Built complete data pipeline from scraping to modeling.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/St-Lexy" target="_blank" class="github-link">View on GitHub →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:amusanolanrewaju420@gmail.com">amusanolanrewaju420@gmail.com</a></p>
-    <p>Phone: +234 704 577 3561</p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/olanrewaju-amusan" target="_blank">olanrewaju-amusan</a></p>
-    <p>GitHub: <a href="https://github.com/St-Lexy" target="_blank">St-Lexy</a></p>
-    <p>Kaggle: <a href="https://www.kaggle.com/stlexy" target="_blank">stlexy</a></p>
-  </section>
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <p class="section-subtitle">Tools and technologies I work with</p>
+            
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Languages & Frameworks</h3>
+                    <ul class="skill-list">
+                        <li>Python (Advanced)</li>
+                        <li>TensorFlow / Keras</li>
+                        <li>PyTorch</li>
+                        <li>Scikit-learn</li>
+                        <li>SQL</li>
+                    </ul>
+                </div>
 
-  <footer>
-    &copy; 2025 Amusan Olanrewaju Stephen. All rights reserved.
-  </footer>
+                <div class="skill-category">
+                    <h3>ML Specializations</h3>
+                    <ul class="skill-list">
+                        <li>Computer Vision</li>
+                        <li>Natural Language Processing</li>
+                        <li>Large Language Models</li>
+                        <li>Conversational AI</li>
+                        <li>Transfer Learning</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Tools & Platforms</h3>
+                    <ul class="skill-list">
+                        <li>AutoGen Framework</li>
+                        <li>Streamlit</li>
+                        <li>Git / GitHub</li>
+                        <li>Jupyter Notebooks</li>
+                        <li>Kaggle</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Data Science</h3>
+                    <ul class="skill-list">
+                        <li>Pandas / NumPy</li>
+                        <li>Data Visualization</li>
+                        <li>Model Evaluation</li>
+                        <li>Feature Engineering</li>
+                        <li>ML Pipelines</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+        <div class="container">
+            <h2 class="section-title">Experience & Education</h2>
+            <p class="section-subtitle">My journey in machine learning and AI</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Industrial Trainee - ML/AI (Completed)</h3>
+                    <div class="date">University College Hospital (UCH), Ibadan | April 2025 - October 2025</div>
+                    <p>Completed 6-month industrial training gaining practical machine learning experience in healthcare setting. Worked on AI solutions in the Software Department, applying ML techniques to real-world medical challenges.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>Bachelor of Technology - Computer Science</h3>
+                    <div class="date">Ladoke Akintola University of Technology (LAUTECH) | Expected 2026</div>
+                    <p>GPA: 4.3/5.0. Focus on Machine Learning, Artificial Intelligence, and Data Science. Active participant in ML projects and competitions.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>📜 Certifications</h3>
+                    <div class="date">Professional Development</div>
+                    <ul class="skill-list">
+                        <li>🧠 Python & Machine Learning – freeCodeCamp</li>
+                        <li>🔬 Deep Learning with PyTorch – Udemy</li>
+                        <li>📊 Google Data Analytics – Coursera</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>🏆 Achievements</h3>
+                    <div class="date">Key Accomplishments</div>
+                    <ul class="skill-list">
+                        <li>8+ ML Projects across multiple domains (Healthcare, Finance, Automotive, NLP)</li>
+                        <li>Consistently achieved 75-98% accuracy across Computer Vision and NLP tasks</li>
+                        <li>Built and deployed production-ready ML applications (MediC Chatbot)</li>
+                        <li>Active Kaggle contributor with competitive ML experience</li>
+                        <li>Completed 6-month Industrial Training in ML/AI at University College Hospital</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Let's Connect</h2>
+            <p class="section-subtitle">I'm always open to discussing new opportunities and collaborations</p>
+            
+            <div class="contact-links">
+                <a href="mailto:amusanolanrewaju420@gmail.com" class="contact-link">
+                    <span>📧</span>
+                    <span>Email Me</span>
+                </a>
+                <a href="https://github.com/St-Lexy" target="_blank" class="contact-link">
+                    <span>💻</span>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://linkedin.com/in/olanrewaju-amusan" target="_blank" class="contact-link">
+                    <span>💼</span>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://kaggle.com/stlexy" target="_blank" class="contact-link">
+                    <span>📊</span>
+                    <span>Kaggle</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Olanrewaju Amusan. All rights reserved.</p>
+        <p>Built with passion for Machine Learning and AI</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navigation
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                nav.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+            } else {
+                nav.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            }
+            
+            lastScroll = currentScroll;
+        });
+    </script>
 </body>
 </html>
